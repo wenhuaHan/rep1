@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ambow.dao.ProvinceDao">
+
+
+    <select id="allProvince" resultType="provinceEntity">
+                  select * from tb_province
+    </select>
+
+    <insert id="addProvince">
+          insert into tb_province values(null,#{values})
+    </insert>
+
+    <select id="byIdProvince" resultType="provinceEntity">
+         select * from tb_province where pid=#{pid}
+    </select>
+     <!--  #{pname}和实体类中对应一致-->
+    <update id="updateProvince" parameterType="provinceEntity">
+        update tb_province set pname=#{pname} where pid=#{pid}
+    </update>
+
+    <delete id="delProvincebyId">
+        delete from tb_province where pid=#{pid}
+    </delete>
+
+
+</mapper>
